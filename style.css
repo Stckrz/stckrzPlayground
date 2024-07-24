@@ -4,6 +4,8 @@ html[data-theme='light'] {
 	--secondary-color: #bac2de;
 	--border-color: #eba0ac;
 	--color: black;
+	--theme-background: url('images/backgroundLight.jpg');
+	
 }
 
 html[data-theme='dark'] {
@@ -11,11 +13,13 @@ html[data-theme='dark'] {
 	--secondary-color: #11111b;
 	--border-color: #6c7086;
 	--text-color: white;
+	--theme-background: url('images/backgroundDark.jpg');
 }
 
 body {
 	background-color: var(--primary-color);
 	color: var(--text-color);
+	background-image: var(--theme-background)
 }
 
 h1 {
