@@ -22,7 +22,7 @@ export function loadContent(url, elementId){
 			if (element) {
 				element.innerHTML = html;
 			} else {
-				console.log("element not found..");
+				console.log("element not found..: " + `${elementId}`);
 			}
 		}).catch(error => {
 			console.error(error);
