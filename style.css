@@ -5,7 +5,7 @@ html[data-theme='light'] {
 	--border-color: #eba0ac;
 	--color: black;
 	--theme-background: url('images/backgroundLight.jpg');
-	
+
 }
 
 html[data-theme='dark'] {
@@ -23,7 +23,7 @@ body {
 }
 
 h1 {
-	color: #59c5d4;
+	color: var(--secondary-color);
 	margin: 0;
 }
 
@@ -62,7 +62,7 @@ h1 {
 	width: 70%;
 }
 
-.sideContentPlaceholder{
+.sideContentPlaceholder {
 	width: 100%;
 	display: flex;
 	justify-content: center;
@@ -119,11 +119,17 @@ h1 {
 	justify-content: center;
 	flex-wrap: wrap;
 	background-color: var(--border-color);
-	height: 40%;
+	/* height: 40%; */
 	margin: 5px;
 	padding: 5px;
-	aspect-ratio: 1/1;
 	border-radius: 10px;
+	overflow: auto;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+.sideContent::-webkit-scrollbar {
+	display: none;
 }
 
 .centeredBox {
@@ -135,7 +141,7 @@ h1 {
 
 
 /*Site link box*/
-.linkList{
+.linkList {
 	display: flex;
 	align-self: center;
 	justify-self: center;
@@ -149,29 +155,30 @@ h1 {
 	list-style-type: none;
 }
 
-.linkButton{
+.linkButton {
 	width: 100%;
 	cursor: pointer;
 	display: flex;
 	gap: 2px;
 }
-.linkLabel:hover + .linkIcon{
-	opacity: 1;	
+
+.linkLabel:hover+.linkIcon {
+	opacity: 1;
 }
 
-.linkIcon{
+.linkIcon {
 	width: 10%;
 	opacity: 0;
 }
 
-.linkIcon:hover{
+.linkIcon:hover {
 	opacity: 1;
 }
 
 
 
 /*external link buttons*/
-.linkButtonBox{
+.linkButtonBox {
 	display: flex;
 	align-items: flex-start;
 	justify-content: flex-start;
@@ -184,16 +191,20 @@ h1 {
 	padding: 5px;
 }
 
-.link-button img{
+.link-button img {
 	height: 80%;
-}	
+}
 
 /* todo list styles*/
-.todoList{
+.todoList {
 	font-size: 14px;
 	width: 90%;
 }
-.todoListLabel{
+.todoList ul{
+	padding-inline-start: 20px;
+}
+
+.todoListLabel {
 	display: flex;
 	align-items: center;
 	justify-content: center;
