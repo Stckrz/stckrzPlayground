@@ -30,6 +30,7 @@ h1 {
 }
 
 .pageContainer {
+	position: relative;
 	width: 98vw;
 	height: 95vh;
 	display: flex;
@@ -55,6 +56,7 @@ h1 {
 	gap: 2%;
 	width: 80%;
 	height: 90%;
+}
 
 /*placeholders*/
 .content-placeholder {
@@ -223,4 +225,72 @@ h1 {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+/*blog post styles*/
+.blogPostContainer{
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	width: 95%;
+	height: 25%;
+	border: 1px solid white;
+	padding: 2%;
+	border-radius: 10px;
+	font-size: 16px;
+}
+
+#blogBox{
+	overflow: auto;
+}
+
+.blogPostTitleBox{
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	cursor: pointer;
+	padding: 2px;
+	border-radius: 5px;
+}
+
+.blogPostTitleBox:hover{
+	background-color: var(--primary-color);
+}
+
+.postTitle{
+	font-weight: bold;
+}
+.postCategory{
+	display: flex;
+	align-self: flex-start;
+}
+
+/* blog modal styles */
+.blogModal{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(0,0,0,0.5);
+}
+
+.blogModalContainer{
+	height: 50%;
+	width: 50%;
+	border-radius: 10px;
+	background-color: var(--secondary-color);
+	padding: 5px;
+
+	border: 10px solid transparent;
+	border-image: var(--border-image);
+	border-image-slice: 20 20;
+	border-width: 15px;
+	border-image-repeat: stretch;
+	border-radius: 5px;
 }
