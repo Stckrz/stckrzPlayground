@@ -22,7 +22,7 @@ export async function fetchBlogPosts(category = "") {
 
 export async function fetchBlogPostCategories() {
 	try {
-		const result = await fetch('http://localhost:4000/blogPosts?category=1');
+		const result = await fetch('http://localhost:4000/blogPosts?categoryList=1');
 		const data = await result.json();
 		return data;
 	} catch (error) {

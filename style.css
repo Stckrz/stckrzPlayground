@@ -54,8 +54,30 @@ h1 {
 .contentBox {
 	display: flex;
 	gap: 2%;
-	width: 80%;
-	height: 90%;
+	width: 85%;
+	height: 85%;
+	max-height: 85%;
+	min-height: 85%;
+}
+
+.closeButtonBox{
+	height: 25px;
+	aspect-ratio: 1/1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.closeButton{
+	background-image: url('images/close.png');
+	background-size: contain;
+	height: 20px;
+	aspect-ratio: 1/1;
+	cursor: pointer
+}
+
+.closeButton:hover{
+	height: 22px;
 }
 
 /*placeholders*/
@@ -106,8 +128,7 @@ h1 {
 .sideContentBox {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
-	width: 25%;
+	width: 30%;
 
 	border-radius: 5px;
 	border: 10px solid transparent;
@@ -177,6 +198,9 @@ h1 {
 	cursor: pointer;
 	display: flex;
 	gap: 2px;
+}
+.linkButton:hover{
+	background-color: #f3cccd;
 }
 
 .linkLabel:hover+.linkIcon {
@@ -263,6 +287,15 @@ h1 {
 .postCategory{
 	display: flex;
 	align-self: flex-start;
+}
+.categoryTitle{
+	padding-left: 5px;
+	padding-right: 5px;
+	cursor: pointer;
+	border-radius: 5px;
+}
+.categoryTitle:hover{
+	background-color: #f3cccd;
 }
 
 /* blog modal styles */

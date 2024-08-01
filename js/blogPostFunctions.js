@@ -1,6 +1,14 @@
-import { fetchBlogPosts } from './blogPostApi.js';
+import { fetchBlogPostCategories, fetchBlogPosts } from './blogPostApi.js';
 
 export const loadBlogPosts = (category = "") => {
+	const phrase = document.getElementById('littlePhrase')
+	if(phrase){
+		phrase.style.setProperty("display", "none")
+	}
+	const blogBox = document.getElementById('blogBox')
+	if (blogBox) {
+		blogBox.innerHTML = "";
+	}
 	fetchBlogPosts(category).then((data) => {
 		for (let i = 0; i < data.length; i++) {
 			addBlog(data[i], 'blogBox')
@@ -48,6 +56,26 @@ export const addBlog = (object, elementId) => {
 	titleBox.appendChild(createdAt)
 	genericContent.appendChild(category)
 	genericContent.appendChild(body)
+}
+
+//loads a list of clickable categories into the right side panel
+export const loadBlogCategoriesPanel = () => {
+	console.log('loading content: blogCategoriesPanel into sideContentPlaceholder');
+	const sideContent = document.getElementById('sideContentPlaceholder');
+	const categoryList = document.createElement('div');
+	categoryList.classList.add('genericContent');
+	fetchBlogPostCategories().then((data) => {
+		for (let i = 0; i < data.length; i++) {
+			const categoryTitle = document.createElement('div');
+			categoryTitle.classList.add('categoryTitle');
+			categoryTitle.innerText = data[i].category;
+			categoryTitle.addEventListener('click', () => {
+				loadBlogPosts(data[i].category);
+			})
+			categoryList.appendChild(categoryTitle);
+		}
+	})
+	sideContent.firstChild.replaceWith(categoryList);
 }
 
 export const loadBlogPostModal = (blogPost) => {
