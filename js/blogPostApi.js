@@ -10,7 +10,7 @@ export async function fetchBlogPosts(category = "") {
 		}
 	} else {
 		try {
-			const result = await fetch('http://localhost:4000/blogPosts');
+			const result = await fetch('http://localhost:4000/blogPosts?sortBy=created_at');
 			const data = await result.json();
 			return data;
 		}

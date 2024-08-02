@@ -203,21 +203,6 @@ h1 {
 	background-color: #f3cccd;
 }
 
-.linkLabel:hover+.linkIcon {
-	opacity: 1;
-}
-
-.linkIcon {
-	width: 10%;
-	opacity: 0;
-}
-
-.linkIcon:hover {
-	opacity: 1;
-}
-
-
-
 /*external link buttons*/
 .linkButtonBox {
 	display: flex;
@@ -257,7 +242,7 @@ h1 {
 	flex-direction: column;
 	gap: 5px;
 	width: 95%;
-	height: 25%;
+	min-height: 25%;
 	border: 1px solid white;
 	padding: 2%;
 	border-radius: 10px;
