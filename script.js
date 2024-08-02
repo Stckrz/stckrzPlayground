@@ -12,8 +12,8 @@ const toggleButton = document.getElementById('toggleButton');
 toggleButton.addEventListener('click', switchTheme);
 
 const homeButton = document.getElementById('homeButton');
-homeButton.addEventListener('click', () => { 
-	loadContent('./pages/home/home.html', 'content-placeholder'); 
+homeButton.addEventListener('click', () => {
+	loadContent('./pages/home/home.html', 'content-placeholder');
 	loadContent('./components/checklist/checklist.html', 'sideContentPlaceholder');
 	const phrase = document.getElementById('littlePhrase');
 	phrase.style.setProperty("display", "block")
@@ -22,9 +22,12 @@ homeButton.addEventListener('click', () => {
 
 const blogButton = document.getElementById('blogButton');
 blogButton.addEventListener('click', () => {
-	loadContent('./pages/blog/blog.html', 'content-placeholder');
-	loadBlogPosts();
-	loadBlogCategoriesPanel();
+	loadContent('./pages/blog/blog.html', 'content-placeholder').then(() => {
+		loadBlogPosts();
+		loadBlogCategoriesPanel();
+	}).catch(error=>{
+			console.error('error loading content', error)
+		})
 });
 
 const aboutButton = document.getElementById('aboutButton');

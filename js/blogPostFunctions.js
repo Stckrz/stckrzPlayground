@@ -2,18 +2,34 @@ import { fetchBlogPostCategories, fetchBlogPosts } from './blogPostApi.js';
 
 export const loadBlogPosts = (category = "") => {
 	const phrase = document.getElementById('littlePhrase')
-	if(phrase){
+	if (phrase) {
 		phrase.style.setProperty("display", "none")
 	}
 	const blogBox = document.getElementById('blogBox')
 	if (blogBox) {
 		blogBox.innerHTML = "";
 	}
+	contentNotFound()
 	fetchBlogPosts(category).then((data) => {
-		for (let i = 0; i < data.length; i++) {
-			addBlog(data[i], 'blogBox')
+		if (data.message) {
+			contentNotFound()
+		} else {
+			for (let i = 0; i < data.length; i++) {
+				addBlog(data[i], 'blogBox')
+			}
 		}
 	})
+}
+export const contentNotFound = () => {
+	const blogBox = document.getElementById('blogBox')
+	if (blogBox) {
+		const genericContent = document.createElement("div");
+		genericContent.classList.add('genericContent')
+		genericContent.innerText = "no posts found... :("
+		blogBox.innerHTML = "";
+		blogBox.appendChild(genericContent)
+	}
+
 }
 
 export const addBlog = (object, elementId) => {
