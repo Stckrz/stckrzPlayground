@@ -80,7 +80,7 @@ export const loadBlogCategoriesPanel = () => {
 
 export const loadBlogPostModal = (blogPost) => {
 	console.log(`loading content: blogPostModal into pageContainer`);
-	fetch('../pages/blog/blogView.html')
+	fetch('./pages/blog/blogView.html')
 		.then(response => {
 			if (!response.ok) {
 				throw new Error(`Error fetching blogPostModal: ${response.statusText}`);
